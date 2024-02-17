@@ -22,7 +22,11 @@ String compressWord(String word, int k) {
         equal = 0;
       }
       if (equal == k) {
-        compressedWord = compressedWord.replaceRange(i, i + k - 1, '');
+        if(compressedWord.length == k) {
+          compressedWord = compressedWord.replaceRange(i, i + k- 1, '');
+        } else {
+          compressedWord = compressedWord.replaceRange(i, i + k, '');
+        }
         equal = 0;
         if(!needRestart && compressedWord.length > 1) {
           needRestart = true;
